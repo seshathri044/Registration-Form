@@ -1,7 +1,6 @@
 # NEXUS JAM – Hackathon Registration Form
 
 A sleek and responsive **HTML, CSS, and JavaScript** registration form designed for the **NEXUS JAM Hackathon** hosted by **Mangayarkarasi College of Engineering**.  
-
 The form collects participant details, validates input, and includes a **Google Pay (UPI) payment integration** before allowing submission.
 
 ---
@@ -16,6 +15,9 @@ The form collects participant details, validates input, and includes a **Google 
 - **Google Apps Script Ready** – Can be connected to store data in Google Sheets.
 
 ---
+## 📱Screenshots
+
+![form](https://github.com/user-attachments/assets/ea91365b-9434-4faa-9035-fe7e08a473cd)
 
 ## 📋 Form Fields
 
@@ -56,4 +58,42 @@ The form collects participant details, validates input, and includes a **Google 
 📦 nexus-jam-registration
 ├── index.html 
 ```
+---
 
+## 🔧 Setup Instructions
+
+1. **Clone the repository**
+```bash
+   git clone https://github.com/your-username/nexus-jam-registration.git
+   cd nexus-jam-registration
+```
+
+2. **Configure Google Apps Script**
+Create a new Google Apps Script linked to a Google Sheet.
+Add a script to handle form submissions.
+Deploy as a Web App and get the script URL.
+
+Replace: javascript
+```bash
+const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_SCRIPT_URL_HERE';
+```
+with your actual URL.
+
+3. **Test the form**
+- Open index.html in your browser.
+- On mobile, click Pay with Google Pay to test payment redirection.
+- On desktop, payment will not open unless an appropriate handler is installed.
+
+### 📱 Mobile vs Desktop Behavior
+- Mobile: Clicking “Pay with Google Pay” opens the payment app.
+- Desktop: Payment redirection might not work since Google Pay is not supported natively on laptops/desktops.
+
+### ⚠️ Note
+- The current UPI ID is a dummy ID for demonstration purposes.
+- Replace it with your actual UPI ID for production use.
+- This form does not store data unless the Google Apps Script integration is set up.
+
+### 📄 License
+This project is open-source and available under the MIT License.
+
+**Live Demo:** [https://nexus-jam-registration.netlify.app](https://nexus-jam-registration.netlify.app)
