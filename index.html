@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS JAM Hackathon Registration</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            animation: slideUp 0.6s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: #4a5568;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            color: #718096;
+            font-size: 1.1rem;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #4a5568;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #f8fafc;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #667eea;
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .payment-section {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            color: white;
+        }
+
+        .payment-section h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .payment-info {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .gpay-btn {
+            background: linear-gradient(135deg, #34d399, #10b981);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .gpay-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover:not(:disabled) {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .success-message {
+            background: linear-gradient(135deg, #10b981, #34d399);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+            text-align: center;
+            display: none;
+        }
+
+        .error-message {
+            background: linear-gradient(135deg, #ef4444, #f87171);
+            color: white;
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 10px;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 25px;
+                margin: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>NEXUS JAM</h1>
+            <p>Hackathon Registration - Mangayarkarasi College of Engineering</p>
+        </div>
+        <form id="hackathonForm">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="firstName">First Name *</label>
+                    <input type="text" id="firstName" name="firstName" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name *</label>
+                    <input type="text" id="lastName" name="lastName" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number *</label>
+                <input type="tel" id="phone" name="phone" class="form-control" required>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="college">College/University *</label>
+                    <input type="text" id="college" name="college" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="year">Year of Study *</label>
+                    <select id="year" name="year" class="form-control" required>
+                        <option value="">Select Year</option>
+                        <option value="1">1st Year</option>
+                        <option value="2">2nd Year</option>
+                        <option value="3">3rd Year</option>
+                        <option value="4">4th Year</option>
+                        <option value="postgrad">Post Graduate</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="department">Department *</label>
+                <input type="text" id="department" name="department" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="experience">Programming Experience *</label>
+                <select id="experience" name="experience" class="form-control" required>
+                    <option value="">Select Experience Level</option>
+                    <option value="beginner">Beginner (0-1 years)</option>
+                    <option value="intermediate">Intermediate (1-3 years)</option>
+                    <option value="advanced">Advanced (3+ years)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="skills">Technical Skills</label>
+                <input type="text" id="skills" name="skills" class="form-control" placeholder="e.g., JavaScript, Python, React, etc.">
+            </div>
+            <div class="payment-section">
+                <h3>💰 Registration Fee</h3>
+                <div class="payment-info">
+                    <p><strong>Amount:</strong> ₹100 per participant</p>
+                    <p><strong>UPI ID:</strong> hackathon@nexusjam</p>
+                    <p><strong>Note:</strong> Please complete payment before submitting registration</p>
+                </div>
+                <button type="button" class="gpay-btn" id="gpayBtn">
+                    <span>💳</span>
+                    Pay with Google Pay
+                </button>
+            </div>
+            <div class="form-group">
+                <label for="transactionId">Transaction ID *</label>
+                <input type="text" id="transactionId" name="transactionId" class="form-control" placeholder="Enter payment transaction ID" required>
+            </div>
+            <button type="submit" class="submit-btn" id="submitBtn">
+                Register for Hackathon
+            </button>
+            <div class="success-message" id="successMessage">
+                <h3>🎉 Registration Successful!</h3>
+                <p>Thank you for registering for NEXUS JAM Hackathon. We'll contact you soon with further details.</p>
+            </div>
+            <div class="error-message" id="errorMessage">
+                <strong>Error:</strong> <span id="errorText"></span>
+            </div>
+        </form>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // **IMPORTANT: Replace this URL with your deployed Google Apps Script URL**
+            const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_SCRIPT_URL_HERE';
+            
+            const form = document.getElementById('hackathonForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            const errorText = document.getElementById('errorText');
+            const gpayBtn = document.getElementById('gpayBtn');
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                successMessage.style.display = 'none';
+                errorMessage.style.display = 'none';
+                
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<span class="loading"></span> Registering...';
+
+                const formData = new FormData(form);
+                const data = {};
+                formData.forEach((value, key) => (data[key] = value));
+
+                fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    body: new URLSearchParams(data),
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    }
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(result => {
+                    if (result.result === 'success') {
+                        successMessage.style.display = 'block';
+                        form.reset();
+                        console.log('Registration successful! Row:', result.row);
+                    } else {
+                        errorMessage.style.display = 'block';
+                        errorText.textContent = result.error || 'An unknown error occurred.';
+                        console.error('Registration failed:', result.error);
+                    }
+                })
+                .catch(error => {
+                    errorMessage.style.display = 'block';
+                    errorText.textContent = 'An unexpected error occurred. Please try again.';
+                    console.error('Submission error:', error);
+                })
+                .finally(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = 'Register for Hackathon';
+                });
+            });
+
+            if (gpayBtn) {
+                gpayBtn.addEventListener('click', function() {
+                    const upiId = 'hackathon@nexusjam';
+                    const amount = '100';
+                    const transactionNote = 'NEXUSJAM Hackathon Registration Fee';
+                    const upiLink = `upi://pay?pa=${upiId}&pn=NEXUS JAM Hackathon&am=${amount}&cu=INR&tn=${transactionNote}`;
+                    window.location.href = upiLink;
+                });
+            }
+        });
+    </script>
+</body>
+</html>
