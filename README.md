@@ -21,16 +21,16 @@ The form collects participant details, validates input, and includes a **Google 
 
 ## 📋 Form Fields
 
-- **First Name** *(required)*
-- **Last Name** *(required)*
-- **Email Address** *(required)*
-- **Phone Number** *(required)*
-- **College/University** *(required)*
-- **Year of Study** *(required – dropdown)*
-- **Department** *(required)*
-- **Programming Experience** *(required – dropdown)*
-- **Technical Skills** *(optional)*
-- **Transaction ID** *(required)*
+- **First Name** 
+- **Last Name** 
+- **Email Address** 
+- **Phone Number** 
+- **College/University** 
+- **Year of Study** 
+- **Department** 
+- **Programming Experience** 
+- **Technical Skills**
+- **Transaction ID** 
 
 ---
 
@@ -69,9 +69,44 @@ The form collects participant details, validates input, and includes a **Google 
 ```
 
 2. **Configure Google Apps Script**
-Create a new Google Apps Script linked to a Google Sheet.
-Add a script to handle form submissions.
-Deploy as a Web App and get the script URL.
+- Create a new Google Apps Script linked to a Google Sheet.
+- Add a script to handle form submissions.
+```bash
+function doPost(e) {
+  try {
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+    
+    // Parse form data
+    var data = e.parameter;
+
+    // Append a new row
+    sheet.appendRow([
+      new Date(),                  // Timestamp
+      data.firstName || "",
+      data.lastName || "",
+      data.email || "",
+      data.phone || "",
+      data.college || "",
+      data.year || "",
+      data.department || "",
+      data.experience || "",
+      data.skills || "",
+      data.transactionId || ""
+    ]);
+
+    // Return success response
+    return ContentService
+      .createTextOutput(JSON.stringify({ result: 'success', row: sheet.getLastRow() }))
+      .setMimeType(ContentService.MimeType.JSON);
+  } catch (error) {
+    // Return error response
+    return ContentService
+      .createTextOutput(JSON.stringify({ result: 'error', error: error.toString() }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}
+```
+- Deploy as a Web App and get the script URL.
 
 Replace: javascript
 ```bash
