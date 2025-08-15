@@ -127,8 +127,7 @@ with your actual URL.
 - The current UPI ID is a dummy ID for demonstration purposes.
 - Replace it with your actual UPI ID for production use.
 - This form does not store data unless the Google Apps Script integration is set up.
-
-### 📄 License
-This project is open-source and available under the MIT License.
+## 🤝 Contributing
+ 🎉Contributions are welcome! 
 
 **Live Demo:** [https://nexus-jam-registration.netlify.app](https://nexus-jam-registration.netlify.app)
