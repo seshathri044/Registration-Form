@@ -132,4 +132,4 @@ with your actual URL.
 ## 🤝 Contributing
  🎉Contributions are welcome! 
 
-**Live Demo:** [https://nexus-jam-registration.netlify.app](https://nexus-jam-registration.netlify.app)
+**Live Demo:** [https://nexus-jam-registration.netlify.app/]
