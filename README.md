@@ -1,7 +1,7 @@
 # NEXUS JAM – Hackathon Registration Form
 
 A sleek and responsive **HTML, CSS, and JavaScript** registration form designed for the **NEXUS JAM Hackathon** hosted by **Mangayarkarasi College of Engineering**.  
-The form collects participant details, validates input, and includes a **Google Pay (UPI) payment integration** before allowing submission.
+The form collects participant details, validates input, and includes a **Google Pay (UPI) payment integration** .
 
 ---
 
@@ -18,6 +18,9 @@ The form collects participant details, validates input, and includes a **Google 
 ## 📱Screenshots
 
 ![form](https://github.com/user-attachments/assets/ea91365b-9434-4faa-9035-fe7e08a473cd)
+**The Values in Registration Form will be updated in the google sheet**
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c61afc44-d5b1-43fc-8f92-518581dcc74e" />
+
 
 ## 📋 Form Fields
 
@@ -39,7 +42,6 @@ The form collects participant details, validates input, and includes a **Google 
 - **Registration Fee:** ₹100 per participant
 - **UPI ID:** `hackathon@nexusjam` *(dummy for testing)*
 - **Payment Method:** Google Pay (UPI link opens payment app on mobile devices)
-- **Note:** Form submission should be done **after completing payment**.
 
 ---
 
@@ -49,7 +51,7 @@ The form collects participant details, validates input, and includes a **Google 
 2. **Click the “Pay with Google Pay”** button to initiate payment.
 3. Enter your **transaction ID** in the form.
 4. **Click “Register for Hackathon”** to submit your details.
-5. The form sends data to your configured **Google Apps Script URL** (replace the placeholder in the code).
+5. The form sends data to your configured **Google Apps Script URL**.
 
 ---
 
