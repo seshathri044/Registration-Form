@@ -129,6 +129,7 @@ with your actual URL.
 - The current UPI ID is a dummy ID for demonstration purposes.
 - Replace it with your actual UPI ID for production use.
 - This form does not store data unless the Google Apps Script integration is set up.
+- If the Google App script is not done then it will show only error message 
 ## 🤝 Contributing
  🎉Contributions are welcome! 
 
