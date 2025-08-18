@@ -3,6 +3,8 @@
 A sleek and responsive **HTML, CSS, and JavaScript** registration form designed for the **NEXUS JAM Hackathon** hosted by **Mangayarkarasi College of Engineering**.  
 The form collects participant details, validates input, and includes a **Google Pay (UPI) payment integration** .
 
+**Live Demo:** [https://nexus-jam-registration.netlify.app/]
+
 ---
 
 ## 🌟 Features
@@ -132,5 +134,3 @@ with your actual URL.
 - If the Google App script is not done then it will show only error message 
 ## 🤝 Contributing
  🎉Contributions are welcome! 
-
-**Live Demo:** [https://nexus-jam-registration.netlify.app/]
